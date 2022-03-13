@@ -27,6 +27,7 @@ forcast_color = ['#131EAA', '#950000', '#003d2d', '#320365', '#672d00', '#04424c
 Site_Names = ['AJ_Jacobs','Bongani_Mabaso_Eco_Park','Leitrim','North_West_University_Vaal_campus','Sharpeville','Vanderbijlpark_NAQI','Zamdela_NAQI']
 Pollutants = ['SO2', 'NO2', 'NO', 'NOx', 'O3', 'CO', 'PM2_5', 'PM10']
 
+
 # Site names and pollutants improved formatting for app
 Site_Names_text = ['AJ Jacobs','Bongani Mabaso Eco Park','Leitrim','North West University Vaal campus','Sharpeville','Vanderbijlpark-NAQI','Zamdela-NAQI']
 Pollutants_text = ['SO2', 'NO2', 'NO', 'NOx', 'O3', 'CO', 'PM2.5', 'PM10']
@@ -89,6 +90,7 @@ df_forcast = df_forcast[Pollutants+['time','day','month','year','datetime']]
 
 ############################################################
 
+
 # Dash app
 app = dash.Dash()
 app.layout = html.Div([
@@ -102,7 +104,7 @@ app.layout = html.Div([
         html.Div([
             html.H2('Map of sites'),
             html.Img(src=app.get_asset_url('image121.png'), width = '80%')
-            ],style={'width': '80%', 'display': 'inline-block','text-align': 'center'}),
+            ],style={'width': '75%', 'display': 'inline-block','text-align': 'center'}),
         
         
         
@@ -136,7 +138,7 @@ app.layout = html.Div([
                                       {'value':7, 'label':Pollutants_text[7]}],
                            labelStyle={'display': 'block'},
                            value=0)
-            ],style={'width': '20%', 'display': 'inline-block'}),
+            ],style={'width': '25%', 'display': 'inline-block'}),
     
         
         html.Div([html.H2('Select dates',style={'textAlign': 'center'}) ]),
@@ -165,7 +167,7 @@ app.layout = html.Div([
             dcc.Slider(id='month2-slider', 
                    min=1,
                    max=12,
-                   value=12,
+                   value=4,
                    step=1,
                    marks={1:'Jan', 
                           2:'Feb',
@@ -199,8 +201,8 @@ app.layout = html.Div([
         
         html.Div([
             html.H2('Pollution level guide'),
-            html.Img(src=app.get_asset_url('table.png'), width = '90%')
-            ],style={'width': '90%', 'display': 'inline-block','text-align': 'center'}),
+            html.Img(src=app.get_asset_url('table.png'), width = '100%')
+            ],style={'width': '95%', 'display': 'inline-block','text-align': 'center'}),
         
         ],style={'width': '90%', 'display': 'inline-block'})
 ],style={'display': 'flex', 'flex-direction': 'row'})
